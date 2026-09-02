@@ -1,0 +1,4 @@
+Temporary note: repository subset appears to miss app.model.authentication.password_reset_token model but mapper_bootstrap.py referenced it.
+Also importing app.model.authentication.* in some contexts was causing MetaData/table duplication errors.
+
+Final fix for original runtime error (CandidateSavedJob not found): should be achieved by ensuring mapper_bootstrap imports CandidateSavedJob before Job mapper configuration. However current test environment has multiple unrelated issues (missing model module and MetaData duplication), so tests may still fail until those are addressed.
